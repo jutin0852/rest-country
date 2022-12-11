@@ -1,0 +1,191 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Nunito Sans", sans-serif;
+}
+body{
+    min-height: 745px;
+    width: 100%;
+    color: white;
+    background-color: hsl(207, 26%, 17%);
+    
+    
+}
+/* header and header content styling */
+header{
+    height: 70px;
+    width: 100%;
+    background-color: hsl(209, 23%, 22%);
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 50px;
+    box-sizing: border-box;
+    
+    
+}
+header span{
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+#mode{
+   font-size: 0.8em;
+}
+#moon{
+    width: 0.9em;
+    margin-right: 5px;
+
+}
+/* countries list styling */
+#countriesList{
+  
+  background-color: hsl(207, 26%, 17%);
+  min-height: 675px;
+  padding: 25px 50px;
+  box-sizing: border-box;
+}
+#search{
+    background-color: hsl(209, 23%, 22%);
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 350px;
+    padding-left: 70px;
+    box-sizing: border-box;
+    color: white;
+}
+#search::placeholder{
+    color: white;
+    font-size: 0.8em;
+    
+
+}
+#searchIcon{
+    position: relative;
+    top: 5px;
+    left: -330px;
+    
+}
+#searchPath{
+display: flex;
+justify-content: space-between;
+}
+#region{
+    background-color: hsl(209, 23%, 22%) ;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 0.7em;
+    width: 150px;
+    
+    padding-left: 10px;
+}
+ option{
+  padding: 5px;
+}
+#countrys{
+    width: 100%;
+    padding: 40px 0;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+    
+     
+}
+.details{
+    padding: 20px;
+ 
+}
+.country{
+    background-color:hsl(209, 23%, 22%) ;
+    margin:0 15px 60px 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-bottom: 20px;
+    width: 250px;
+    cursor: pointer;
+}
+.countryName{
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+.name{
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    color: white;
+    /* display: inline-block; */
+}
+.key{
+    font-size: 0.8em;
+    color: hsl(0, 0%, 98%);
+    font-weight:lighter;
+    
+}
+
+
+/* dknkfnknkrffm */
+#moreDetail{
+  
+    background-color: hsl(207, 26%, 17%);
+    min-height: 675px;
+    padding: 70px 70px 0 70px;
+    box-sizing: border-box;
+    display: none;
+  }
+  #backBtn{
+    background-color:hsl(209, 23%, 22%) ;
+    border: none;
+    padding: 7px 30px 7px 40px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 1px hsl(208, 24%, 14%); 
+    font-size: 0.75em;
+    cursor: pointer;
+  }
+  #bigDetails{
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  #bigDetails img{
+    margin-right: 80px;
+
+  }
+  #smalldetails{
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+
+  }
+  #firstDetails{
+    margin-right: 120px;
+
+  }
+  .name1{
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: white;
+    /* display: inline-block; */
+}
+#fullDetails{
+    padding: 60px 0;
+}
+.countryName1{
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+#secondDetails{
+    margin-top: unset;
+}
+.arrow{
+    position: relative;
+    left: -85px;
+    top: 5px;
+    cursor: pointer;
+}
