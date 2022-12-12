@@ -192,7 +192,7 @@ getCountries().then( country => {
     <button class="backBtn">Back</button>
     <i class="material-icons arrow" style="font-size:18px">keyboard_backspace</i>
     <div id="bigDetails">
-        <img src=${flags.png} height="400px" width="550px" alt="">
+        <img class="bigFlags" src=${flags.png}  alt="">
         <div id="fullDetails">
             <p class="countryName1">${name.common}</p>
             <div id="smalldetails">
@@ -211,8 +211,8 @@ getCountries().then( country => {
                      <p class="name1">Language: <span class="key">${(nlang == undefined) ? 'None' : nlang[0]}  ${(nlang[1] == undefined) ? '' : nlang[1]}  ${(nlang[2] == undefined) ? '' :  nlang[2]}</span</p>
                   </div>
              </div>
-             <p class="name1 borderkey">Border countires:   <span class="border">${capital}</span> <span class="border">${capital}</span>
-             <span class="border">${capital}</span> </p>
+             <p class="name1 borderkey">Border countires:  <span class='bord' ><span class="border">${(borders == undefined)? '': borders[0]}</span> <span class="border">${(borders == undefined)? '':(borders[1] == undefined)?'': borders[1]}</span>
+             <span class="border">${(borders == undefined)? '':(borders[2] == undefined)? '': borders[2]}</span></span>  </p>
 
         </div>
         
