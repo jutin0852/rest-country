@@ -1,7 +1,12 @@
 //https://restcountries.com/v3.1/all
-let search=document.forms[0];
-let countries=document.getElementById('countrys');
-let  moreDetail=document.getElementById('moreDetail');
+let search = document.forms[0];
+let countries = document.getElementById('countrys');
+let  moreDetail = document.getElementById('moreDetail');
+let mode = document.getElementById('mode');
+let header = document.querySelector('header');
+
+
+
 
 const getCountries = async ()=>{
     const response=await fetch('https://restcountries.com/v3.1/all');
@@ -64,24 +69,81 @@ function find(){
 let body = document.body;
 
 body.onclick = function(){
+    let country=document.querySelectorAll('.country')
     let countriesList=document.getElementById('countriesList')
+    let region = document.querySelector('.region');
+    let backBtn = document.querySelector('.backBtn');
+    let search = document.querySelector('.search');
+    let arrow = document.querySelector('.arrow');
+    let searchicon = document.querySelector('#searchIcon');
+
+
+
+
+
+
+
+
     // let countrys=document.querySelectorAll('.country')
     if(event.target.className == 'flagimg' || event.target.className == 'details')
      {
-        countriesList.style.display='none';
+        countries.style.display='none';
         moreDetail.style.display="block";
+        search.style.visibility='hidden';
+        searchicon.style.visibility='hidden'
+
+
+        region.style.visibility='hidden'
+        backBtn.style.visibility='visible'
+        arrow.style.visibility='visible'
+
+
+
         choose(event.target.parentElement.getAttribute("data-num"))
         
     }
-    if(event.target.id == "backBtn" || event.target.className=="material-icons arrow" ){
+    if(event.target.classList.contains('backBtn') || event.target.classList.contains("arrow") ){
         moreDetail.style.display="none";
-        countriesList.style.display='block';
+        countries.style.display='flex';
+        search.style.visibility='visible';
+        searchicon.style.visibility='visible';
+
+
+        region.style.visibility='visible';
+        backBtn.style.visibility='hidden'
+        arrow.style.visibility='hidden'
+
+
+
+
         moreDetail.innerHTML=''
         
         
     }
+    if(event.target.id=="mode"){
+        
+            body.classList.toggle('dark');
+            header.classList.toggle('headDark');
+            search.classList.toggle('countryDark');
+            region.classList.toggle('countryDark');
+      
+            country.forEach( countrys => {
+                countrys.classList.toggle('countryDark');
+            })
+            backBtn.classList.toggle('countryDark')
+           
+           
+
+        
+}
+
+
+
 
 }
+
+
+
 function choose(num){
     
 getCountries().then( country => {
@@ -99,8 +161,7 @@ getCountries().then( country => {
      let ncurr = (currencies !=undefined ) ? Object.values(currencies): undefined;
      let nlang = (languages !=undefined ) ? Object.values(languages): undefined;
     
-    moreDetail.innerHTML=`<button id="backBtn">Back</button>
-    <i class="material-icons arrow" style="font-size:18px">keyboard_backspace</i>
+    moreDetail.innerHTML=`
     <div id="bigDetails">
         <img src=${flags.png} height="400px" width="550px" alt="">
         <div id="fullDetails">
