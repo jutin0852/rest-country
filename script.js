@@ -142,7 +142,7 @@ body.onclick = function(){
         
             body.classList.toggle('dark');
             header.classList.toggle('headDark');
-            search.classList.toggle('countryDark');
+            search.classList.toggle('forsearch');
             region.classList.toggle('countryDark');
       
             country.forEach( countrys => {
