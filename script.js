@@ -30,7 +30,7 @@ getCountries().then( country => {
             } = country[x];
             
             
-        countries.innerHTML+=` <div class="country" data-num="${x}">
+        countries.innerHTML+=` <div class="country" data-region='${region}' data-num="${x}">
         <img src=${flags.png} class='flagimg' height="150px" width="250px" alt="">
         <div class="details">
             <p class="countryName">${name.common}</p>
@@ -65,8 +65,34 @@ function find(){
         
     } )
 }
+//filter function
+let filter = document.querySelector('.region')
+filter.addEventListener('change',function(){
+    console.log(filter.value)
+    let count=document.querySelectorAll('.country')
+    count.forEach( country => {
+        country.style.display='none';
+        let region = country.getAttribute('data-region');
+        console.log(region)
+      if(filter.value == "All"){
+        country.style.display="block"
+
+
+      }
+       if (filter.value == region  ){
+        country.style.display="block" }
+    //    
+        
+
+    })
+   
+})
+
+
+
 
 let body = document.body;
+
 
 body.onclick = function(){
     let country=document.querySelectorAll('.country')
@@ -74,8 +100,8 @@ body.onclick = function(){
     let region = document.querySelector('.region');
     let backBtn = document.querySelector('.backBtn');
     let search = document.querySelector('.search');
-    let arrow = document.querySelector('.arrow');
-    let searchicon = document.querySelector('#searchIcon');
+    let border = document.querySelectorAll('.border');
+    let moon = document.querySelector('#moon');
 
 
 
@@ -84,43 +110,35 @@ body.onclick = function(){
 
 
 
-    // let countrys=document.querySelectorAll('.country')
+
+
+
+    // do display detail on a country
     if(event.target.className == 'flagimg' || event.target.className == 'details')
      {
-        countries.style.display='none';
-        moreDetail.style.display="block";
-        search.style.visibility='hidden';
-        searchicon.style.visibility='hidden'
-
-
-        region.style.visibility='hidden'
-        backBtn.style.visibility='visible'
-        arrow.style.visibility='visible'
-
-
-
         choose(event.target.parentElement.getAttribute("data-num"))
-        
+        countriesList.style.display='none';
+        moreDetail.style.display="block";
+   
     }
+    // to go back to list of countries
     if(event.target.classList.contains('backBtn') || event.target.classList.contains("arrow") ){
         moreDetail.style.display="none";
-        countries.style.display='flex';
-        search.style.visibility='visible';
-        searchicon.style.visibility='visible';
-
-
-        region.style.visibility='visible';
-        backBtn.style.visibility='hidden'
-        arrow.style.visibility='hidden'
-
-
-
-
+        countriesList.style.display='block';
         moreDetail.innerHTML=''
-        
-        
+     
     }
+    // button that changes dark or light mode
     if(event.target.id=="mode"){
+
+        if(moon.classList.contains('moon')){
+            moon.classList.remove('moon');
+            moon.src="/image/icon-moon.svg";
+        }
+        else{
+            moon.classList.add('moon');
+            moon.src="/image/icon-moonblack.svg";
+        }
         
             body.classList.toggle('dark');
             header.classList.toggle('headDark');
@@ -130,7 +148,16 @@ body.onclick = function(){
             country.forEach( countrys => {
                 countrys.classList.toggle('countryDark');
             })
-            backBtn.classList.toggle('countryDark')
+            if(moreDetail.style.display=='block'){
+                border.forEach( b => {
+                    b.classList.toggle('countryDark')
+                })
+                backBtn.classList.toggle('countryDark');
+                
+            }
+           
+
+
            
            
 
@@ -162,6 +189,8 @@ getCountries().then( country => {
      let nlang = (languages !=undefined ) ? Object.values(languages): undefined;
     
     moreDetail.innerHTML=`
+    <button class="backBtn">Back</button>
+    <i class="material-icons arrow" style="font-size:18px">keyboard_backspace</i>
     <div id="bigDetails">
         <img src=${flags.png} height="400px" width="550px" alt="">
         <div id="fullDetails">
@@ -182,14 +211,34 @@ getCountries().then( country => {
                      <p class="name1">Language: <span class="key">${(nlang == undefined) ? 'None' : nlang[0]}  ${(nlang[1] == undefined) ? '' : nlang[1]}  ${(nlang[2] == undefined) ? '' :  nlang[2]}</span</p>
                   </div>
              </div>
+             <p class="name1 borderkey">Border countires:   <span class="border">${capital}</span> <span class="border">${capital}</span>
+             <span class="border">${capital}</span> </p>
 
         </div>
         
     </div>`
 }
+let border = document.querySelectorAll('.border');
+let backBtn = document.querySelector('.backBtn');
+
+if(body.classList.contains('dark')){
+    backBtn.classList.add('countryDark');
+    border.forEach( b => {
+            b.classList.add('countryDark');
+    })
+
+}
+else{
+    backBtn.classList.remove('countryDark');
+    border.forEach( b => {
+            b.classList.remove('countryDark');
+    })
+}
+
  
 }).catch( err => {
     console.log("there is an error:",err.message)
 })
 
 }
+

@@ -3,6 +3,12 @@
     margin: 0;
     font-family: "Nunito Sans", sans-serif;
 }
+
+
+
+
+@media screen and (min-width:630px) {
+    
 body{
     min-height: 745px;
     width: 100%;
@@ -40,7 +46,7 @@ header span{
 /* countries list styling */
 #countriesList{
   
-  /* background-color: hsl(207, 26%, 17%); */
+  
   min-height: 675px;
   padding: 25px 50px;
   box-sizing: border-box;
@@ -135,12 +141,12 @@ justify-content: space-between;
 #moreDetail{
   
     /* background-color: hsl(207, 26%, 17%); */
-    /* min-height: 675px; */
-    /* padding: 70px 80px 0 80px; */
+    min-height: 675px;
+    padding: 70px 80px 0 80px;
     box-sizing: border-box;
     display: none;
   }
-  .backBtn{
+  .backBtn,.border{
     background-color:hsl(209, 23%, 22%) ;
     border: none;
     padding: 7px 30px 7px 40px;
@@ -149,7 +155,7 @@ justify-content: space-between;
     box-shadow: 0px 0px 7px 1px hsl(208, 24%, 14%); 
     font-size: 0.75em;
     cursor: pointer;
-    visibility: hidden;
+    
   }
   #bigDetails{
     padding: 60px 0;
@@ -194,7 +200,6 @@ justify-content: space-between;
     left: -85px;
     top: 5px;
     cursor: pointer;
-    visibility: hidden;
 }
 
 .dark{
@@ -209,4 +214,13 @@ justify-content: space-between;
     background-color: white;
     color: hsl(209, 23%, 22%);
     box-shadow: 0px 0px 5px 0px  hsl(0, 0%, 52%) 
+}
+.border{
+  
+    padding: 5px 20px 5px 20px;
+    margin-left: 5px;  
+}
+.borderkey{
+    margin-top: 50px;
+}
 }
